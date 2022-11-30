@@ -2,6 +2,7 @@ import React from "react";
 import Accordion from "./components/Accordion/Accordion";
 import { Rating } from "./components/Rating/Rating";
 import OnOff from "./components/OnOff/OnOff";
+import UncontrolledAccordion from "./components/UncontrolledAccordion/UncontrolledAccordion";
 
 function App() {
   return (
@@ -9,15 +10,16 @@ function App() {
       {/*<PageTitle title={"This is App component"} />*/}
       {/*<PageTitle title={"My Friends"} />*/}
       {/*<Rating value={5} />*/}
-      {/*<UncontrolledAccordion titleValue={"Menu"} collapsed={false} />*/}
-      {/*<UncontrolledAccordion titleValue={"Users"} collapsed={true} />*/}
       {/*<Rating value={4} />*/}
+      <UncontrolledAccordion titleValue={"Menu"} />
+      <UncontrolledAccordion titleValue={"Users"} />
       <OnOff />
       <OnOff />
       <OnOff />
     </div>
   );
 }
+
 type PageTitlePropsType = {
   title: string;
 };
