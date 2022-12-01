@@ -1,17 +1,16 @@
-import React from "react";
-import Accordion from "./components/Accordion/Accordion";
-import { Rating } from "./components/Rating/Rating";
+import React, { useState } from "react";
+import { Rating, RatingValueType } from "./components/Rating/Rating";
 import OnOff from "./components/OnOff/OnOff";
 import UncontrolledAccordion from "./components/UncontrolledAccordion/UncontrolledAccordion";
-import { UncontrolledRating } from "./components/UncontrolledRating/UncontrolledRating";
 
 function App() {
+  const [ratingValue, setRatingValue] = useState<RatingValueType>(0);
   return (
     <div>
       {/*<PageTitle title={"This is App component"} />*/}
       {/*<PageTitle title={"My Friends"} />*/}
       {/*<UncontrolledRating value={5} />*/}
-      <UncontrolledRating />
+      <Rating value={ratingValue} onClick={setRatingValue} />
       <UncontrolledAccordion titleValue={"Menu"} />
       <UncontrolledAccordion titleValue={"Users"} />
       <OnOff />
