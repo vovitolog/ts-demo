@@ -42,3 +42,54 @@ export const GetValueOfUncontrolledInputByButtonPress = () => {
     </>
   );
 };
+
+export const ContolledInput = () => {
+  const [parentValue, setParentValue] = useState("");
+
+  function onChangeHandler(event: ChangeEvent<HTMLInputElement>) {
+    setParentValue(event.currentTarget.value);
+  }
+
+  return (
+    <>
+      <input value={parentValue} onChange={onChangeHandler} />- value -{" "}
+      {parentValue}
+    </>
+  );
+};
+
+export const ContolledCheckbox = () => {
+  const [parentValue, setParentValue] = useState(false);
+  function onChangeHandler(event: ChangeEvent<HTMLInputElement>) {
+    setParentValue(event.currentTarget.checked);
+  }
+
+  return (
+    <>
+      <input
+        type={"checkbox"}
+        checked={parentValue}
+        onChange={onChangeHandler}
+      />
+      - value - {parentValue.valueOf()}
+    </>
+  );
+};
+
+export const ContolledSelect = () => {
+  const [parentValue, setParentValue] = useState<string | undefined>("2");
+  function onChangeHandler(event: ChangeEvent<HTMLSelectElement>) {
+    setParentValue(event.currentTarget.value);
+  }
+
+  return (
+    <>
+      <select value={parentValue} onChange={onChangeHandler}>
+        <option>none</option>
+        <option value={"1"}>Moscow</option>
+        <option value={"2"}>Minsk</option>
+        <option value={"3"}>Astana</option>
+      </select>
+    </>
+  );
+};
