@@ -2,6 +2,7 @@ import React from "react";
 
 type AccordionPropsType = {
   titleValue: string;
+  /** Collapsed option**/
   collapsed: boolean;
   onChange: () => void;
 };
