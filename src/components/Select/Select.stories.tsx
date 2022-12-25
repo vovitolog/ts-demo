@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { Select } from "./Select";
 
 import { ComponentMeta } from "@storybook/react";
-import { action } from "@storybook/addon-actions";
 
 export default {
   title: "Select",
@@ -21,7 +20,6 @@ export const WithValue = () => {
         { title: "Khimki", value: "2" },
         { title: "Piter", value: "3" },
       ]}
-      // value={"2"}
     />
   );
 };
