@@ -1,4 +1,4 @@
-.select main{
+.select .main {
     border: 1px solid black;
     display: inline-block;
     min-height: 20px;
@@ -7,10 +7,15 @@
 
 .items {
     position: absolute;
-   padding: 5px;
-    border: 1px solid black;
+    padding: 5px;
+    border: 1px solid blue;
 }
 
 /*.select.active .items {*/
 /*    display: block;*/
 /*}*/
+
+.item.selected {
+    color: white;
+    background-color: blue;
+}
