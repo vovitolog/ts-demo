@@ -88,3 +88,21 @@ export const ResetEffectExample = () => {
     </>
   );
 };
+
+export const KeysTrackExample = () => {
+  const [text, setText] = useState("");
+
+  console.log("Component Rendered with " + text);
+
+   useEffect(() => {
+     const handler = (e: KeyboardEvent) => {
+       setText(text + e.key);
+     }
+    window.addEventListener("keypress", handler);
+    return ()=> {
+      console.log('effect cleared')
+      window.removeEventListener("keypress", handler);
+    }
+  }, [text]);
+  return <>Typed Text: {text}</>;
+};
