@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import {clearTimeout} from "timers";
 
 export default {
   title: "UseEffect Demo",
@@ -94,15 +95,34 @@ export const KeysTrackExample = () => {
 
   console.log("Component Rendered with " + text);
 
-   useEffect(() => {
-     const handler = (e: KeyboardEvent) => {
-       setText(text + e.key);
-     }
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      setText(text + e.key);
+    };
     window.addEventListener("keypress", handler);
-    return ()=> {
-      console.log('effect cleared')
+    return () => {
+      console.log("effect cleared");
       window.removeEventListener("keypress", handler);
-    }
+    };
+  }, [text]);
+  return <>Typed Text: {text}</>;
+};
+
+export const SetTimeoutExample2 = () => {
+  const [text, setText] = useState("");
+
+  console.log("Component Rendered with " + text);
+
+  useEffect(() => {
+   const timeoutId =  setTimeout(() => {
+      console.log('Timeout Expired')
+      setText("3 seconds passed");
+    }, 3000);
+
+    return () => {
+      console.log('Clear timeout')
+     clearTimeout(timeoutId)
+    };
   }, [text]);
   return <>Typed Text: {text}</>;
 };
