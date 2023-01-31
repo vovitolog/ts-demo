@@ -60,27 +60,31 @@ export const SetTimeoutExample = () => {
       setSeconds((state) => new Date().getSeconds());
       setMinutes((state) => new Date().getMinutes());
       setHours((state) => new Date().getHours());
-     // console.log(new Date().getHours());
+      // console.log(new Date().getHours());
     }, 1000);
   }, []);
 
   return (
     <>
-      {/*<button*/}
-      {/*  onClick={() => {*/}
-      {/*    setCounter(counter + 1);*/}
-      {/*  }}*/}
-      {/*>*/}
-      {/*  Counter*/}
-      {/*</button>*/}
-      {/*<button*/}
-      {/*  onClick={() => {*/}
-      {/*    setFake(fake + 1);*/}
-      {/*  }}*/}
-      {/*>*/}
-      {/*  Fake*/}
-      {/*</button>*/}
       Hello, counter: {counter} fake: {fake} TIME: {hours}:{minutes}:{seconds}
+    </>
+  );
+};
+
+export const ResetEffectExample = () => {
+  const [counter, setCounter] = useState(1);
+  console.log("Component Rendered with " + counter);
+  useEffect(() => {
+    console.log("Effect occurred " + counter);
+
+    return () => {
+      console.log("Reset Effect " + counter);
+    };
+  }, [counter]);
+  return (
+    <>
+      {counter}
+      <button onClick={() => setCounter(counter + 1)}>+</button>
     </>
   );
 };
