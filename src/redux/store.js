@@ -1,5 +1,5 @@
-import { createStore } from 'redux';
-
+import {createStore} from 'redux';
+import { devToolsEnhancer } from 'redux-devtools-extension'
 // Reducer
 const todolistReducer = (state = [], action) => {
     switch (action.type) {
@@ -30,4 +30,6 @@ export const toggleTodo = (id) => ({
     type: 'CHANGE_STATUS',
     id
 })
-export const store = createStore(todolistReducer);
+export const store = createStore(
+    todolistReducer, devToolsEnhancer()
+);
